@@ -11,11 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
  
-app.use(function (req, res) {
-  res.setHeader('Content-Type', 'text/plain')
-  res.write(`Connected to local host:\n` + PORT)
-  res.end(JSON.stringify(req.body, null, 2))
-})
+require('./app/routing/htmlRoutes.js')(app);
 
 
 
